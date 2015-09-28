@@ -379,7 +379,7 @@ add_action( 'widgets_init', 'calendar_widgets_init' );
 //Add new events from filemaker --- should be cron?
 function add_external_calendar_events() {
 		global $wpdb;
-		$servername = "70.32.81.253";
+		$servername = "localhost";
 		$username = "mesh";
 		$password = "Wasd1234!";
 		$dbname = "wvhc_filemaker";
@@ -412,7 +412,7 @@ function add_external_calendar_events() {
 		    // output data of each row
 
 		    while($row = $result->fetch_assoc()) {
- 					$filemaker_id =
+ 					//$filemaker_id =
 		     		//Sanitize in database
 					$id = $row["ID"];
 					$eventID = $row["EventID"];
@@ -435,17 +435,26 @@ function add_external_calendar_events() {
 					$filename = $row["Filename"];
 					$wp_id = $row["wp_id"];
 
+					$image = mysqli_real_escape_string($conn, $row['image']);
+
+					$description = str_replace("\\r", '', $description); // remove carriage returns
+					$description = str_replace("\\n", '', $description); // remove new lines
+					$description = str_replace("\\", '', $description); // remove carriage returns
+
 					// Create post object
 					$my_post = array(
 						'ID'           => $wp_id,
 						'post_title'    => $title,
 						'post_content'  => $description,
 						'post_status'   => 'publish',
-						'post_type' => 'tribe_events'
+						'post_type' => 'tribe_events',
+						'post_name' => 'event-' . $eventID
 					);
 
 					// Insert the post into the database
 					$post_id = wp_update_post( $my_post, true);
+
+					update_post_meta($post_id, "filemaker_image", $image);
 
 					//Push WPID Filemaker Table Arrays
 					array_push($filemaker_id_arr, $post_id);
@@ -579,3 +588,14 @@ function add_external_calendar_events() {
 }
 
 add_action('add_events', 'add_external_calendar_events');
+
+function acf_css_hack() {
+   echo '<style type="text/css">
+            .acf-image-uploader img[src=""] {
+                min-height:100px;
+                min-width:100px;
+                width:100%;
+            }
+         </style>';
+}
+add_action('admin_head', 'acf_css_hack');

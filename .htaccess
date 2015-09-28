@@ -1,0 +1,248 @@
+
+Redirect 301 /page2.htm  /about
+Redirect 301 /staff.htm /board-of-directors
+Redirect 301 /forms.htm /grants/forms-and-applications
+Redirect 301 /calendar.htm /events
+Redirect 301 /programs.htm /programs
+Redirect 301 /alive.htm /programs/history-alive
+Redirect 301 /alivepresenterforms.htm /programs/history-alive
+Redirect 301 /ChildJulia.htm /programs/history-alive
+Redirect 301 /cornstalk.htm /programs/history-alive
+Redirect 301 /HA_Delany_m.htm /programs/history-alive
+Redirect 301 /FranklinBen.htm /programs/history-alive
+Redirect 301 /HA_Jackson_s.htm /programs/history-alive
+Redirect 301 /LamonWardHill.htm /programs/history-alive
+Redirect 301 /HA_Lincoln.htm /programs/history-alive
+Redirect 301 /Ostenaco.htm /programs/history-alive
+Redirect 301 /PearlMinnie.htm /programs/history-alive
+Redirect 301 /HA_Roosevelt.htm /programs/history-alive
+Redirect 301 /RooseveltTheodore.htm /programs/history-alive
+Redirect 301 /Sacagawea.htm /programs/history-alive
+Redirect 301 /HA_Strother_D.htm /programs/history-alive
+Redirect 301 /htubman.htm /programs/history-alive
+Redirect 301 /HA_Twain.htm /programs/history-alive
+Redirect 301 /littlelecture.htm /programs/little-lectures
+Redirect 301 /LaborHistory.htm /programs
+Redirect 301 /mcreight.htm /programs/mccreight-lecture
+Redirect 301 /Podcasts.htm /media-library/podcasts
+Redirect 301 /bemember.htm /donate/humanities-council-membership
+Redirect 301 /challenge.htm /about/our-historic-house
+Redirect 301 /grants1.htm /grants
+Redirect 301 /proposal07.doc /grants
+Redirect 301 /Logos.htm /media-library
+Redirect 301 /guidline.htm /
+Redirect 301 /CitizenMemberNominationForm.doc /grants
+Redirect 301 /MajorGrantApplication.doc /grants
+Redirect 301 /MiniGrantApplication.doc /grants
+Redirect 301 /FellowshipGrantApplication.doc /grants
+Redirect 301 /MediaGrantApplication.doc /grants
+Redirect 301 /TeacherInstituteApplication.doc /grants
+Redirect 301 /AudienceEvaluationForm.doc /grants
+Redirect 301 /encyc1_eg.htm /
+Redirect 301 /encyclop_finance.htm /online-store
+Redirect 301 /encyclop_writers.htm /online-store
+Redirect 301 /filmhistry.htm /online-store
+Redirect 301 /newsletr.htm /media-library/people-mountains
+Redirect 301 /annualreport2002.htm /
+Redirect 301 /people_mountains/summer02.htm /media-library/people-mountains
+Redirect 301 /people_mountains/winter01.htm /media-library/people-mountains
+Redirect 301 /Jun00.htm /media-library/people-mountains
+Redirect 301 /sept00.htm /media-library/people-mountains
+Redirect 301 /Mar00.htm /media-library/people-mountains
+Redirect 301 /mar99.htm /media-library/people-mountains
+Redirect 301 /Sept99.htm /media-library/people-mountains
+Redirect 301 /dec99.htm /media-library/people-mountains
+Redirect 301 /links.htm /
+Redirect 301 /sesqui.htm /
+Redirect 301 /hubbard.htm /about/our-historic-house
+Redirect 301 /hubbard1.htm /about/our-historic-house
+Redirect 301 /hubbard3.htm /about/our-historic-house
+Redirect 301 /hubbard2.htm /about/our-historic-house
+Redirect 301 /hubbard5.htm /about/our-historic-house
+Redirect 301 /hubbard9.htm /about/our-historic-house
+Redirect 301 /hubbard10.htm /about/our-historic-house
+Redirect 301 /hubbard11.htm /about/our-historic-house
+Redirect 301 /hubbard12.htm /about/our-historic-house
+Redirect 301 /hubbard7.htm /about/our-historic-house
+Redirect 301 /HatfieldsMcCoysExhibit.htm /programs
+Redirect 301 /PerDiemExpense.pdf /grants
+Redirect 301 /InKindForm.pdf /grants
+Redirect 301 /July15.pdf /grants
+Redirect 301 /HA_BookingForm14.pdf /grants
+Redirect 301 /HAEvalForm.pdf /grants
+Redirect 301 /HA_monthlylog14.pdf /grants
+Redirect 301 /HAsuggestedclassroomactivities.pdf /grants
+Redirect 301 /HATeacherEval.pdf /grants
+Redirect 301 /HAPresentersEval.pdf /grants
+Redirect 301 /forms/PublicityRequirements.pdf /grants
+Redirect 301 /laborhistory_lesnplns/Intro.pdf /grants
+Redirect 301 /laborhistory_lesnplns/Lesson1.pdf /grants
+Redirect 301 /laborhistory_lesnplns/Lesson2a.pdf /grants
+Redirect 301 /laborhistory_lesnplns/Lesson2b.pdf /grants
+Redirect 301 /laborhistory_lesnplns/Lesson2c.pdf /grants
+Redirect 301 /laborhistory_lesnplns/Lesson3.pdf /grants
+Redirect 301 /laborhistory_lesnplns/Lesson4.pdf /grants
+Redirect 301 /laborhistory_lesnplns/Lesson5.pdf /grants
+Redirect 301 /laborhistory_lesnplns/Lesson6.pdf /grants
+Redirect 301 /laborhistory_lesnplns/Lesson7.pdf /grants
+Redirect 301 /laborhistory_lesnplns/Lesson8.pdf /grants
+Redirect 301 /laborhistory_lesnplns/Lesson9.pdf /grants
+Redirect 301 /laborhistory_lesnplns/AppendixA.pdf /grants
+Redirect 301 /laborhistory_lesnplns/AppendixB.pdf /grants
+Redirect 301 /laborhistory_lesnplns/AppendixC.pdf /grants
+Redirect 301 /laborhistory_lesnplns/AppendixD.pdf /grants
+Redirect 301 /laborhistory_lesnplns/AppendixE.pdf /grants
+Redirect 301 /laborhistory_lesnplns/AppendixF_Glossary.pdf /grants
+Redirect 301 /StairCampaignBro.pdf /grants
+Redirect 301 /challengedonationcard.pdf /grants
+Redirect 301 /giftform.pdf /grants
+Redirect 301 /GrantAwards13.pdf /grants
+Redirect 301 /grantawards11.pdf /grants
+Redirect 301 /grantawards12.pdf /grants
+Redirect 301 /grantawards07.pdf /grants
+Redirect 301 /grantawards08.pdf /grants
+Redirect 301 /grantawards10.pdf /grants
+Redirect 301 /grantforms/GrantGuidelines2014.pdf /grants
+Redirect 301 /grantawards06.pdf /grants
+Redirect 301 /grantforms/MiniGrantApp.pdf /grants
+Redirect 301 /grantforms/FellowshipGrantApp.pdf /grants
+Redirect 301 /grantforms/MajorGrantApp.pdf /grants
+Redirect 301 /grantforms/MediaGrantApp.pdf /grants
+Redirect 301 /grantforms/TeacherInstituteApp15.pdf /grants
+Redirect 301 /grantforms/PublicationGrantApp.pdf /grants
+Redirect 301 /grantforms/ProgressReport.pdf /grants
+Redirect 301 /grantforms/TAPFinalReportForm.pdf /grants
+Redirect 301 /grantforms/FinalNarrReport.pdf /grants
+Redirect 301 /grantforms/FinancialReport.pdf /grants
+Redirect 301 /grantforms/CostShareReport.pdf /grants
+Redirect 301 /grantforms/BudgetForm.pdf /grants
+Redirect 301 /grantforms/CitizenMbrNomForm.pdf /grants
+Redirect 301 /grantforms/AudienceEvalForm.pdf /grants
+Redirect 301 /grantforms/PaymentSchedule.pdf /grants
+Redirect 301 /webgrants.pdf /grants
+Redirect 301 /WVEncycLessonPlans.pdf /grants
+Redirect 301 /encyc_lessonplns/ele_lesn1.pdf /grants
+Redirect 301 /encyc_lessonplns/TableContnts-Intro.pdf /grants
+Redirect 301 /encyc_lessonplns/ele_lesn2.pdf /grants
+Redirect 301 /encyc_lessonplns/ele_lsn3.pdf /grants
+Redirect 301 /encyc_lessonplns/ele_lsn4.pdf /grants
+Redirect 301 /encyc_lessonplns/ele_lsn5.pdf /grants
+Redirect 301 /encyc_lessonplns/ele_lsn6.pdf /grants
+Redirect 301 /encyc_lessonplns/ele_lsn7.pdf /grants
+Redirect 301 /encyc_lessonplns/ele_lsn8.pdf /grants
+Redirect 301 /encyc_lessonplns/ele_lsn9.pdf /grants
+Redirect 301 /encyc_lessonplns/ele_lsn10.pdf /grants
+Redirect 301 /encyc_lessonplns/sec_lsn11.pdf /grants
+Redirect 301 /encyc_lessonplns/sec_lsn12.pdf /grants
+Redirect 301 /encyc_lessonplns/sec_lsn13.pdf /grants
+Redirect 301 /encyc_lessonplns/sec_lsn14.pdf /grants
+Redirect 301 /encyc_lessonplns/sec_lsn15.pdf /grants
+Redirect 301 /encyc_lessonplns/sec_lsn16.pdf /grants
+Redirect 301 /encyc_lessonplns/sec_lsn17.pdf /grants
+Redirect 301 /encyc_lessonplns/sec_lsn18.pdf /grants
+Redirect 301 /encyc_lessonplns/sec_lsn19.pdf /grants
+Redirect 301 /encyc_lessonplns/sec_lsn20.pdf /grants
+Redirect 301 /encyc_lessonplns/sec_lsn21.pdf /grants
+Redirect 301 /encyc_lessonplns/sec_lsn22.pdf /grants
+Redirect 301 /encyc_lessonplns/sec_lsn23.pdf /grants
+Redirect 301 /encyc_lessonplns/sec_lsn24.pdf /grants
+Redirect 301 /encyc_lessonplns/sec_lsn25.pdf /grants
+Redirect 301 /people_mountains/P&MSpr15.pdf /grants
+Redirect 301 /people_mountains/annual13.pdf /grants
+Redirect 301 /people_mountains/Spring2014.pdf /grants
+Redirect 301 /people_mountains/Fall14.pdf /grants
+Redirect 301 /people_mountains/Winter14.pdf /grants
+Redirect 301 /people_mountains/annualreport14.pdf /grants
+Redirect 301 /people_mountains/Spring13.pdf /grants
+Redirect 301 /people_mountains/Fall13.pdf /grants
+Redirect 301 /people_mountains/winter13.pdf /grants
+Redirect 301 /people_mountains/Spring12.pdf /grants
+Redirect 301 /people_mountains/fall12.pdf /grants
+Redirect 301 /people_mountains/winter12.pdf /grants
+Redirect 301 /people_mountains/annual12.pdf /grants
+Redirect 301 /people_mountains/Spring11.pdf /grants
+Redirect 301 /people_mountains/Fall11.pdf /grants
+Redirect 301 /people_mountains/Winter11.pdf /grants
+Redirect 301 /people_mountains/Annual11.pdf /grants
+Redirect 301 /people_mountains/Fall10.pdf /grants
+Redirect 301 /people_mountains/spring10.pdf /grants
+Redirect 301 /people_mountains/Winter10.pdf /grants
+Redirect 301 /people_mountains/Spring09.pdf /grants
+Redirect 301 /people_mountains/annual10.pdf /grants
+Redirect 301 /people_mountains/Fall09.pdf /grants
+Redirect 301 /people_mountains/Winter09.pdf /grants
+Redirect 301 /people_mountains/Annual09.pdf /grants
+Redirect 301 /people_mountains/Spring08.pdf /grants
+Redirect 301 /people_mountains/Summer08.pdf /grants
+Redirect 301 /people_mountains/Fall08.pdf /grants
+Redirect 301 /people_mountains/Winter08.pdf /grants
+Redirect 301 /people_mountains/annualreport08.pdf /grants
+Redirect 301 /people_mountains/Spring07.pdf /grants
+Redirect 301 /people_mountains/Summer07.pdf /grants
+Redirect 301 /people_mountains/Fall07.pdf /grants
+Redirect 301 /people_mountains/Winter07.pdf /grants
+Redirect 301 /people_mountains/annualreport07.pdf /grants
+Redirect 301 /people_mountains/spring06.pdf /grants
+Redirect 301 /people_mountains/Summer06.pdf /grants
+Redirect 301 /people_mountains/Fall06.pdf /grants
+Redirect 301 /people_mountains/annualreport05.pdf /grants
+Redirect 301 /people_mountains/Winter06.pdf /grants
+Redirect 301 /people_mountains/annualreport06.pdf /grants
+Redirect 301 /people_mountains/SpringPM2005.pdf /grants
+Redirect 301 /people_mountains/Winter05.pdf /grants
+Redirect 301 /people_mountains/fall2005.pdf /grants
+Redirect 301 /people_mountains/Summer05.pdf /grants
+Redirect 301 /people_mountains/PMFall04.pdf /grants
+Redirect 301 /people_mountains/PMSummer04.pdf /grants
+Redirect 301 /people_mountains/Winter2004PM.pdf /grants
+Redirect 301 /people_mountains/annualreport2004.pdf /grants
+Redirect 301 /people_mountains/Spring2003.pdf /grants
+Redirect 301 /people_mountains/Fall2003.pdf /grants
+Redirect 301 /people_mountains/annualreport2003.pdf /grants
+Redirect 301 /people_mountains/spring02.pdf /grants
+Redirect 301 /people_mountains/Fall2002Magazine.pdf /grants
+Redirect 301 /people_mountains/Winter_2002.pdf /grants
+Redirect 301 /annualreportp3.pdf /grants
+Redirect 301 /annualreportp2.pdf /grants
+Redirect 301 /annualreportp4.pdf /grants
+Redirect 301 /Annualreportp1.pdf /grants
+Redirect 301 /annualreportp5.pdf /grants
+Redirect 301 /annualreportp6.pdf /grants
+Redirect 301 /annualreportp7.pdf /grants
+Redirect 301 /annualreportp8.pdf /grants
+Redirect 301 /annualreportp9.pdf /grants
+Redirect 301 /annualreportp10.pdf /grants
+Redirect 301 /annualreportp11.pdf /grants
+Redirect 301 /annualreportp12.pdf /grants
+Redirect 301 /people_mountains/Summer01.pdf /grants
+Redirect 301 /PR_NewBrd_0415.pdf /grants
+Redirect 301 /PR_Folklorist.pdf /grants
+
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+php_value upload_max_filesize 64M
+php_value post_max_size 64M
+php_value max_execution_time 300
+php_value max_input_time 300
+
+<ifModule mod_gzip.c>
+mod_gzip_on Yes
+mod_gzip_dechunk Yes
+mod_gzip_item_include file .(html?|txt|css|js|php|pl)$
+mod_gzip_item_include handler ^cgi-script$
+mod_gzip_item_include mime ^text/.*
+mod_gzip_item_include mime ^application/x-javascript.*
+mod_gzip_item_exclude mime ^image/.*
+mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
+</ifModule>

@@ -10,7 +10,7 @@ get_header();?>
 
 <?php get_template_part('partials/header', 'jumbotron'); ?>
 
-	<div class="container content-container">
+	<div class="container content-container home-container">
 	  <!-- Example row of columns -->
 
 

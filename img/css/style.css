@@ -227,7 +227,7 @@ h4{
 .text a:link, a:visited, a:active {
 	color:#f2ae2e;
 	text-decoration: none !important;
-	
+	font-family: "ClarendonLight", Times, Serif;
 }
 
 
@@ -237,7 +237,7 @@ li a:link, li a:active, li a:hover {
 	color:#f2ae2e;
 	text-decoration: none !important;
 }
-
+ 
 
 a:hover {
     color: #F4BF5E;
@@ -289,19 +289,6 @@ p a:hover, a:active {
 		font-weight: bold;
 		line-height:15px;
 	}
-}
-
-.addthis_sharing_toolbox{
-	text-align:right;
-}
-
-.at-share-btn {
-	background: #B0AF93 !important;
-}
-
-.at-share-btn:hover, .at-share-btn:active, .at-share-btn:focus{
-	background: #f2ae2e !important;
-	opacity:1 !important;
 }
 
 .main-nav{

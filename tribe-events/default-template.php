@@ -38,7 +38,7 @@ $page_subheading = get_field('page_subheading');
 		}
 </style>
 
-<?php //add_external_calendar_events(); ?>
+<?php // add_external_calendar_events(); ?>
 
 <div class="jumbotron">
 	<div class="container">
