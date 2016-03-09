@@ -75,8 +75,8 @@ $organizer = tribe_get_organizer();
 	<!-- Event Title -->
 	<?php do_action( 'tribe_events_before_the_event_title' ) ?>
 	<h2 class="tribe-events-list-event-title entry-title summary">
-		<a class="url" href="<?php echo tribe_get_event_link() ?>" title="<?php the_title() ?>" rel="bookmark">
-			<?php the_title() ?>
+	<a class="url" href="<?php echo tribe_get_event_link() ?>" title="" rel="bookmark">
+			<?php echo stripslashes(get_the_title());  ?>
 		</a>
 	</h2>
 

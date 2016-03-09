@@ -16,6 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $event_id = get_the_ID();
 
+
+
 ?>
 
 <div id="tribe-events-content" class="tribe-events-single vevent hentry">
@@ -25,7 +27,7 @@ $event_id = get_the_ID();
 	</p>
 
 	<!-- Notices -->
-	<?php tribe_events_the_notices() ?>
+	<?php // tribe_events_the_notices() ?>
 
 	<?php
 
@@ -37,7 +39,7 @@ $event_id = get_the_ID();
 
 	?>
 
-	<?php the_title( '<h2 class="tribe-events-single-event-title summary entry-title">', '</h2>' ); ?>
+	<h2 class="tribe-events-single-event-title summary entry-title"><?php echo stripslashes(get_the_title()); ?></h2>
 
 	<div class="tribe-events-schedule updated published tribe-clearfix">
 		<?php echo tribe_events_event_schedule_details( $event_id, '<h3>', '</h3>' ); ?>
@@ -104,3 +106,5 @@ $event_id = get_the_ID();
 	<!-- #tribe-events-footer -->
 
 </div><!-- #tribe-events-content -->
+
+<?php add_external_calendar_events($event_id);  ?>
