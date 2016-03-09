@@ -50,7 +50,7 @@ get_header();?>
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-8">
-			<?php the_content(); ?>..
+			<?php the_content(); ?>
 			</div> 
                <div class="col-md-4">
                <?php while (have_posts()) : the_post();

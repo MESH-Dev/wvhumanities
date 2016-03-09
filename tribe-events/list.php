@@ -12,21 +12,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
-}
-
-	add_external_calendar_events();
-
-
-
-	if ( $_GET['eid'] ) {
-		echo "<script>window.location.href='http://wvhumanities.org/events/event-" . $_GET['eid'] . "'</script>";
-	}
-
-
-
-
-?>
-
+} ?>
 
 <?php do_action( 'tribe_events_before_template' ); ?>
 

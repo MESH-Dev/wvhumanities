@@ -16,7 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-
 <?php
 
 $eventspage = get_page_by_title("What's Happening");
@@ -28,18 +27,7 @@ $page_background_quote = get_field('page_background_quote');
 $page_heading = get_the_title();
 $page_subheading = get_field('page_subheading');
 
-
-
 ?>
-
-
-
-<?php  
-$event_id = get_the_ID();
- 
-
-
-?>	
 
 <style>
 		.jumbotron {
@@ -50,6 +38,7 @@ $event_id = get_the_ID();
 		}
 </style>
 
+<?php //add_external_calendar_events(); ?>
 
 <div class="jumbotron">
 	<div class="container">
@@ -98,23 +87,17 @@ $event_id = get_the_ID();
 						</div>
 
 						<hr>
-						
-						
+
 						<?php tribe_events_before_html(); ?>
 						<?php tribe_get_view(); ?>
 						<?php tribe_events_after_html(); ?>
 					</div> <!-- #tribe-events-pg-template -->
-				
+
 			</div>
        <div class="col-md-4">
         <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('calendar_sidebar') ) : endif; ?>
        </div>
       </div>
     </div>
-
-<?php
- 
-	
- ?>
 
 <?php get_footer(); ?>

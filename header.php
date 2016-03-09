@@ -29,7 +29,7 @@
 <?php do_action( 'before' ); ?>
 
 <nav class="navbar navbar-default" role="navigation">
-	<div class="container <?php if(is_page(5)){ echo 'home-container'; }?>">
+	<div class="container">
 	    <div class="row">
 	        <div class="col-md-12">
 						<div class="top-nav">
