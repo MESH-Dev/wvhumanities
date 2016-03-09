@@ -6577,3 +6577,18 @@ button.close {
     display: none !important;
   }
 }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .home-container{
+    width: 1000px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home-container{
+    width: 94%;
+  }
+}
+ 
+
+

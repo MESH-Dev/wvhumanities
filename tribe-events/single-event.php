@@ -16,6 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $event_id = get_the_ID();
 
+
+
 ?>
 
 <div id="tribe-events-content" class="tribe-events-single vevent hentry">
@@ -25,9 +27,19 @@ $event_id = get_the_ID();
 	</p>
 
 	<!-- Notices -->
-	<?php tribe_events_the_notices() ?>
+	<?php // tribe_events_the_notices() ?>
 
-	<?php the_title( '<h2 class="tribe-events-single-event-title summary entry-title">', '</h2>' ); ?>
+	<?php
+
+		if( get_post_meta( $event_id, 'filemaker_image' )[0] ) {
+
+			echo "<img src='" . get_post_meta( $event_id, 'filemaker_image' )[0] . "' />";
+
+		}
+
+	?>
+
+	<h2 class="tribe-events-single-event-title summary entry-title"><?php echo stripslashes(get_the_title()); ?></h2>
 
 	<div class="tribe-events-schedule updated published tribe-clearfix">
 		<?php echo tribe_events_event_schedule_details( $event_id, '<h3>', '</h3>' ); ?>
@@ -41,7 +53,7 @@ $event_id = get_the_ID();
 	<div id="tribe-events-header" <?php tribe_events_the_header_attributes() ?>>
 		<!-- Navigation -->
 		<h3 class="tribe-events-visuallyhidden"><?php _e( 'Event Navigation', 'tribe-events-calendar' ) ?></h3>
-		 
+
 		<!-- .tribe-events-sub-nav -->
 	</div>
 	<!-- #tribe-events-header -->
@@ -94,3 +106,5 @@ $event_id = get_the_ID();
 	<!-- #tribe-events-footer -->
 
 </div><!-- #tribe-events-content -->
+
+<?php add_external_calendar_events($event_id);  ?>

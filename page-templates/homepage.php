@@ -11,7 +11,7 @@ get_header(); ?>
 <div class="home-left-half"></div>
 
 <?php while (have_posts()) : the_post(); ?>
-<div class="container content-container">
+<div class="container content-container home-container">
       <div class="row">
         <div class="col-md-3">
           <div class="home-left-caption">

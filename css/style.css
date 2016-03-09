@@ -227,14 +227,17 @@ h4{
 .text a:link, a:visited, a:active {
 	color:#f2ae2e;
 	text-decoration: none !important;
-	font-family: "ClarendonLight", Times, Serif;
+	
 }
+
+
 
 li a:link, li a:active, li a:hover {
 	font-family: "ClarendonLight", Times, Serif;
 	color:#f2ae2e;
 	text-decoration: none !important;
 }
+
 
 a:hover {
     color: #F4BF5E;
@@ -247,6 +250,14 @@ h4 a:link, h4 a:visited, h4 a:active, p a:link, p a:visited, p a:active{
 	outline: 0;
 	outline-offset: 0;
 }
+
+.col-md-8 h4 a:link, .col-md-8 p a:link, .col-md-8 li a:link, .col-md-8 li a:active, .col-md-8 li a:hover, .col-md-8 .text a:link, .col-md-8 a:visited, .col-md-8 a:active, .col-md-8 h4 a:link, .col-md-8 h4 a:visited, .col-md-8 h4 a:active, .col-md-8 p a:link, .col-md-8 p a:visited, .col-md-8 p a:active {
+	color:#a87f48;
+}
+
+
+
+
 p a:hover, a:active {
     color: #F4BF5E;
     text-decoration:none !important;
@@ -278,6 +289,19 @@ p a:hover, a:active {
 		font-weight: bold;
 		line-height:15px;
 	}
+}
+
+.addthis_sharing_toolbox{
+	text-align:right;
+}
+
+.at-share-btn {
+	background: #B0AF93 !important;
+}
+
+.at-share-btn:hover, .at-share-btn:active, .at-share-btn:focus{
+	background: #f2ae2e !important;
+	opacity:1 !important;
 }
 
 .main-nav{

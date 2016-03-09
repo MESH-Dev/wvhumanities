@@ -377,12 +377,20 @@ add_action( 'widgets_init', 'calendar_widgets_init' );
 
 
 //Add new events from filemaker --- should be cron?
-function add_external_calendar_events() {
+function add_external_calendar_events($eid = '') {
 		global $wpdb;
-		$servername = "70.32.81.253";
+		$servername = "localhost";
 		$username = "mesh";
 		$password = "Wasd1234!";
 		$dbname = "wvhc_filemaker";
+
+		// Start of code
+
+$time = microtime();
+$time = explode(' ', $time);
+$time = $time[1] + $time[0];
+$start = $time;
+
 
 		// Create connection
 		$conn = new mysqli($servername, $username, $password, $dbname);
@@ -403,16 +411,57 @@ function add_external_calendar_events() {
 
 
 		// $sql = "SELECT * FROM events where wp_id is null";
-		$sql = "SELECT * FROM events";
+
+		if($eid != ''){
+			$sql = "SELECT * FROM events where wp_id = $eid";
+
+		}
+		else{
+			//$sql = "SELECT * FROM events where DateEnd > now()";
+			$sql = "SELECT * FROM events";
+
+		}
+
+
+
 		$result = $conn->query($sql);
  		$filemaker_id_arr = array();
+
+		$initial_query = "SELECT wp_id from events";
+		$initial_filemaker_id_arr = $conn->query($initial_query);
+
+		$new_array = array();
+
+		while($rowz = $initial_filemaker_id_arr->fetch_assoc()) {
+
+			array_push($new_array, $rowz['wp_id']);
+
+		}
+
+		//find all post ids from wp tables
+		$initial_wp_id_arr = array();
+		$wp_events = $wpdb->get_results( "SELECT ID FROM $wpdb->posts WHERE post_type = 'tribe_events' ");
+
+		//loop through wp_ids and delete posts if not in filemaker table
+		foreach ( $wp_events as $wp_event_id )
+		{
+			if(!in_array($wp_event_id->ID,$new_array)){
+				wp_delete_post( $wp_event_id->ID, true);
+			}
+			else {
+				//array_push($wp_id_arr, $wp_event_id->ID);
+			}
+		}
+
 
 
 		if ($result->num_rows > 0) {
 		    // output data of each row
 
 		    while($row = $result->fetch_assoc()) {
- 					$filemaker_id =
+
+
+ 					//$filemaker_id =
 		     		//Sanitize in database
 					$id = $row["ID"];
 					$eventID = $row["EventID"];
@@ -435,120 +484,160 @@ function add_external_calendar_events() {
 					$filename = $row["Filename"];
 					$wp_id = $row["wp_id"];
 
-					// Create post object
-					$my_post = array(
-						'ID'           => $wp_id,
-						'post_title'    => $title,
-						'post_content'  => $description,
-						'post_status'   => 'publish',
-						'post_type' => 'tribe_events'
-					);
+					$image = mysqli_real_escape_string($conn, $row['image']);
 
-					// Insert the post into the database
-					$post_id = wp_update_post( $my_post, true);
+					// $description = str_replace("\\r", '', $description); // remove carriage returns
+					// $description = str_replace("\\n", '', $description); // remove new lines
+					// $description = str_replace("\\", '', $description); // remove carriage returns
 
-					//Push WPID Filemaker Table Arrays
-					array_push($filemaker_id_arr, $post_id);
+					$cur_post = get_post($wp_id);
 
-					//print_r($post_id);
-					if( is_wp_error( $post_id ) ) {
-					   $errors  =$post_id->get_error_message();
-					   //print_r($errors);
-					   //$conn->query("UPDATE events set VenueStreet2= $errors where ID = $id");
-					}
+					$cur_content = $cur_post->post_content;
+					$cur_title = $cur_post->post_title;
 
-					// VENUE
-					$dateStart = $dateStart . " " . $time;
+					//print_r($cur_post);
 
-					update_post_meta($post_id, "_EventStartDate", $dateStart);
-					update_post_meta($post_id, "_EventEndDate", $dateEnd);
 
-					// Update the external database with the new post ID
-					$conn->query("UPDATE events set wp_id = $post_id where ID = $id");
+					if ($eventID != NULL) {
 
-					// Check if event location exists
 
-					if (strlen($venue) > 0) {
 
-						global $wpdb;
-						$r = $wpdb->get_results ( "SELECT ID FROM  $wpdb->posts WHERE post_title = '".$venue."'" );
+						// if(($cur_content_length != $desc_length) || ($cur_title != $title))
 
-						if(count($r) <= 0) {
+						if($wp_id == NULL){
+							// Create post object
+							$my_post = array(
+								'ID'           => $wp_id,
+								'post_title'    => $title,
+								'post_content'  => $description,
+								'post_status'   => 'publish',
+								'post_type' => 'tribe_events',
+								'post_name' => 'event-' . $eventID
+							);
 
-								$new_venue = array(
-									'post_title' => $venue,
-									'post_status' => 'publish',
-									'post_type' => 'tribe_venue',
-									''
-								);
+							// Insert the post into the database
+							$post_id = wp_update_post( $my_post, true);
+							//echo $post_id  . ' ,';
+						}
+						else{
+							//update post contant and title
+						}
 
-								$venue_id = wp_insert_post($new_venue);
 
-								update_post_meta($venue_id, "_VenueVenue", $title);
-								update_post_meta($venue_id, "_VenueAddress", $venueStreet1);
-								update_post_meta($venue_id, "_VenueCity", $venueCity);
-								update_post_meta($venue_id, "_VenueStateProvince", $venueState);
-								update_post_meta($venue_id, "_VenueZip", $venueZip);
-								update_post_meta($venue_id, "_VenueCountry", "United States");
+						update_post_meta($post_id, "filemaker_image", $image);
 
-								update_post_meta($venue_id, "_VenueURL", $venueURL);
-								update_post_meta($venue_id, "_VenuePhone", $venuePhone);
+						//Push WPID Filemaker Table Arrays
+						array_push($filemaker_id_arr, $post_id);
 
-								update_post_meta($post_id, "_EventVenueID", $venue_id);
+						//print_r($post_id);
+						if( is_wp_error( $post_id ) ) {
 
+
+						   $errors  =$post_id->get_error_message();
+						  //  print_r($errors);
+						   //$conn->query("UPDATE events set VenueStreet2= $errors where ID = $id");
 						} else {
 
-							  foreach($r as $row1) {
-									update_post_meta($post_id, "_EventVenueID", $row1->ID);
+							// VENUE
+							$dateStart = $dateStart . " " . $time;
+
+							update_post_meta($post_id, "_EventStartDate", $dateStart);
+							update_post_meta($post_id, "_EventEndDate", $dateEnd);
+
+							// Update the external database with the new post ID
+							$conn->query("UPDATE events set wp_id = $post_id where ID = $id");
+
+							// Check if event location exists
+
+							if (strlen($venue) > 0) {
+
+
+								$r = $wpdb->get_results ( "SELECT ID FROM  $wpdb->posts WHERE post_title = '".$venue."'" );
+
+								if(count($r) <= 0) {
+
+										$new_venue = array(
+											'post_title' => $venue,
+											'post_status' => 'publish',
+											'post_type' => 'tribe_venue',
+											''
+										);
+
+										$venue_id = wp_insert_post($new_venue);
+
+										update_post_meta($venue_id, "_VenueVenue", $title);
+										update_post_meta($venue_id, "_VenueAddress", $venueStreet1);
+										update_post_meta($venue_id, "_VenueCity", $venueCity);
+										update_post_meta($venue_id, "_VenueStateProvince", $venueState);
+										update_post_meta($venue_id, "_VenueZip", $venueZip);
+										update_post_meta($venue_id, "_VenueCountry", "United States");
+
+										update_post_meta($venue_id, "_VenueURL", $venueURL);
+										update_post_meta($venue_id, "_VenuePhone", $venuePhone);
+
+										update_post_meta($post_id, "_EventVenueID", $venue_id);
+
+								} else {
+
+									  foreach($r as $row1) {
+											update_post_meta($post_id, "_EventVenueID", $row1->ID);
+										}
+
+
+								}
+							}
+
+							if (strlen($venueContact) > 0) {
+
+								global $wpdb;
+								$r = $wpdb->get_results ( "SELECT ID FROM  $wpdb->posts WHERE post_title = '".$venueContact."'" );
+
+								if(count($r) <= 0) {
+
+										$new_contact = array(
+											'post_title' => $venueContact,
+											'post_status' => 'publish',
+											'post_type' => 'tribe_organizer'
+										);
+
+										$contact_id = wp_insert_post($new_contact);
+
+										update_post_meta($contact_id, "_OrganizerWebsite", $venueURL);
+										update_post_meta($contact_id, "_OrganizerEmail", $venueEmail);
+										update_post_meta($contact_id, "_OrganizerPhone", $venuePhone);
+
+										update_post_meta($post_id, "_EventOrganizerID", $contact_id);
+
+								} else {
+
+									  foreach($r as $row1) {
+											update_post_meta($post_id, "_EventOrganizerID", $row1->ID);
+										}
+
+
 								}
 
+							}
 
-						}
-					}
+							if (strlen($programType) > 0) {
 
-					if (strlen($venueContact) > 0) {
 
-						global $wpdb;
-						$r = $wpdb->get_results ( "SELECT ID FROM  $wpdb->posts WHERE post_title = '".$venueContact."'" );
-
-						if(count($r) <= 0) {
-
-								$new_contact = array(
-									'post_title' => $venueContact,
-									'post_status' => 'publish',
-									'post_type' => 'tribe_organizer'
-								);
-
-								$contact_id = wp_insert_post($new_contact);
-
-								update_post_meta($contact_id, "_OrganizerWebsite", $venueURL);
-								update_post_meta($contact_id, "_OrganizerEmail", $venueEmail);
-								update_post_meta($contact_id, "_OrganizerPhone", $venuePhone);
-
-								update_post_meta($post_id, "_EventOrganizerID", $contact_id);
-
-						} else {
-
-							  foreach($r as $row1) {
-									update_post_meta($post_id, "_EventOrganizerID", $row1->ID);
+						  	if (term_exists($programType, 'tribe_events_cat')) {
+									wp_set_object_terms($post_id, $programType, 'tribe_events_cat');
 								}
-
+								else {
+									wp_insert_term($programType, 'tribe_events_cat');
+									wp_set_object_terms($post_id, $programType, 'tribe_events_cat');
+								}
+							}
 
 						}
 
 					}
 
-					if (strlen($programType) > 0) {
 
 
-				  	if (term_exists($programType, 'tribe_events_cat')) {
-							wp_set_object_terms($post_id, $programType, 'tribe_events_cat');
-						}
-						else {
-							wp_insert_term($programType, 'tribe_events_cat');
-							wp_set_object_terms($post_id, $programType, 'tribe_events_cat');
-						}
-					}
+
 
 		    }
 		}
@@ -557,19 +646,31 @@ function add_external_calendar_events() {
 		}
 		$conn->close();
 
-		//find all post ids from wp tables
-		$wp_id_arr = array();
-		$wp_events = $wpdb->get_results( "SELECT ID FROM $wpdb->posts WHERE post_type = 'tribe_events' ");
+		// //find all post ids from wp tables
+		// $wp_id_arr = array();
+		// $wp_events = $wpdb->get_results( "SELECT ID FROM $wpdb->posts WHERE post_type = 'tribe_events' ");
+		//
+		// //loop through wp_ids and delete posts if not in filemaker table
+		// foreach ( $wp_events as $wp_event_id )
+		// {
+		// 	if(!in_array($wp_event_id->ID,$filemaker_id_arr)){
+		// 		wp_delete_post( $wp_event_id->ID, true);
+		// 	}
+		// 	else
+		// 		array_push($wp_id_arr, $wp_event_id->ID);
+		// }
 
-		//loop through wp_ids and delete posts if not in filemaker table
-		foreach ( $wp_events as $wp_event_id )
-		{
-			if(!in_array($wp_event_id->ID,$filemaker_id_arr)){
-				wp_delete_post( $wp_event_id->ID, true);
-			}
-			else
-				array_push($wp_id_arr, $wp_event_id->ID);
-		}
+
+
+		// Rest of code
+
+		// End of code
+		$time = microtime();
+$time = explode(' ', $time);
+$time = $time[1] + $time[0];
+$finish = $time;
+$total_time = round(($finish - $start), 4);
+echo '<p style="color: #FBF6EE">Page generated in '.$total_time.' seconds. </p>';
 
 
 
@@ -579,3 +680,16 @@ function add_external_calendar_events() {
 }
 
 add_action('add_events', 'add_external_calendar_events');
+
+function acf_css_hack() {
+   echo '<style type="text/css">
+            .acf-image-uploader img[src=""] {
+                min-height:100px;
+                min-width:100px;
+                width:100%;
+            }
+         </style>';
+}
+add_action('admin_head', 'acf_css_hack');
+
+add_filter( 'run_wptexturize', '__return_false' );
